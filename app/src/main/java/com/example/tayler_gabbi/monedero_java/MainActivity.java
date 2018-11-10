@@ -1,5 +1,6 @@
 package com.example.tayler_gabbi.monedero_java;
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
         onClickReistarte = findViewById(R.id.button_register);
 
         onClickSesion.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(this,LoginActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -29,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intentn = new Intent(this,RegistrarActivity.class);
+                Intent intents = new Intent(MainActivity.this,RegistrarActivity.class);
+                startActivity(intents);
             }
         });
 
