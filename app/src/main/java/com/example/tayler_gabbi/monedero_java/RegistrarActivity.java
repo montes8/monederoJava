@@ -1,6 +1,6 @@
 package com.example.tayler_gabbi.monedero_java;
 
-import android.app.Application;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -20,7 +20,12 @@ public class RegistrarActivity extends AppCompatActivity {
         usuario.setNombre("mariana");
         usuario.setUsuario("brenda");
         usuario.setContrasenia("mariana");
-        daoSession.getUsuarioDao().insert(usuario);
+        Long a=daoSession.getUsuarioDao().insert(usuario);
 
+    }
+
+    public void deleteUsuario(){
+
+        daoSession.delete(1L);
     }
 }

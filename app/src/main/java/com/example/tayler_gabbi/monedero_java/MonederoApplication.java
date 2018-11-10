@@ -1,8 +1,12 @@
 package com.example.tayler_gabbi.monedero_java;
 
+
+
 import android.app.Application;
 
 import org.greenrobot.greendao.database.Database;
+import com.example.tayler_gabbi.monedero_java.DaoSession;
+import com.example.tayler_gabbi.monedero_java.DaoMaster;
 
 public class MonederoApplication extends Application {
 
@@ -13,7 +17,7 @@ public class MonederoApplication extends Application {
         super.onCreate();
 
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this,"mydb");
-                Database db = helper.getWritableDb();
+        Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
 
     }
