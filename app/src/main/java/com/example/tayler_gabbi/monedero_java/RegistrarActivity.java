@@ -35,4 +35,14 @@ public class RegistrarActivity extends AppCompatActivity {
 
         List<Usuario> usuarios = daoSession.getUsuarioDao().loadAll();
     }
+
+    public void actulizarUsuario(){
+
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setId(1L);
+        nuevoUsuario.setNombre("mariana");
+        nuevoUsuario.setUsuario("brenda");
+        nuevoUsuario.setContrasenia("mariana");
+        daoSession.getUsuarioDao().update(nuevoUsuario);
+    }
 }
