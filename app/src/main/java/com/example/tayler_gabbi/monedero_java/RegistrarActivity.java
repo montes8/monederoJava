@@ -1,14 +1,19 @@
 package com.example.tayler_gabbi.monedero_java;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.List;
 
 public class RegistrarActivity extends AppCompatActivity {
     private DaoSession daoSession;
-    
+    private EditText nombre,usuarios,contrasenia;
+    private Button regitrarse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +21,28 @@ public class RegistrarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registrar);
 
         daoSession = ((MonederoApplication)getApplication()).getDaoSession();
+        nombre = findViewById(R.id.edit_text_name);
+        usuarios = findViewById(R.id.edit_text_usuario);
+        contrasenia = findViewById(R.id.edit_text_password);
+        regitrarse = findViewById(R.id.button_register_ingresar);
+
+        regitrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertarUsuario();
+                Intent intent = new Intent(RegistrarActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
     private void insertarUsuario (){
         Usuario usuario = new Usuario();
-        usuario.setNombre("mariana");
-        usuario.setUsuario("brenda");
-        usuario.setContrasenia("mariana");
+        usuario.setNombre(nombre.getText().toString());
+        usuario.setUsuario(usuarios.getText().toString());
+        usuario.setContrasenia(contrasenia.getText().toString());
         Long a=daoSession.getUsuarioDao().insert(usuario);
 
     }
