@@ -5,7 +5,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Generated;
 
-@Entity(nameInDb = "TBL_CLIENTE")
+@Entity(nameInDb = "TBL_RESTAURANTE")
 public class Usuario {
 
     @Id(autoincrement = true)
