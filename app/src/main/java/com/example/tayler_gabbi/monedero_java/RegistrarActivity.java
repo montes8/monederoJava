@@ -30,9 +30,7 @@ public class RegistrarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 insertarUsuario();
-                Intent intent = new Intent(RegistrarActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+
             }
         });
 
@@ -44,6 +42,10 @@ public class RegistrarActivity extends AppCompatActivity {
         usuario.setUsuario(usuarios.getText().toString());
         usuario.setContrasenia(contrasenia.getText().toString());
         Long a=daoSession.getUsuarioDao().insert(usuario);
+
+        Intent intent = new Intent(RegistrarActivity.this,ListaUsuarioActivity.class);
+        startActivity(intent);
+        finish();
 
     }
 

@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
                             "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,ListaUsuarioActivity.class);
                     startActivity(intent);
                 }
             }
