@@ -1,4 +1,4 @@
-package com.example.tayler_gabbi.monedero_java;
+package com.example.tayler_gabbi.monedero_java.model;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

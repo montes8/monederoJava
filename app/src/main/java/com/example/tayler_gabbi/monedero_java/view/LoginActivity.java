@@ -1,13 +1,19 @@
-package com.example.tayler_gabbi.monedero_java;
+package com.example.tayler_gabbi.monedero_java.view;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.tayler_gabbi.monedero_java.DaoMaster;
+import com.example.tayler_gabbi.monedero_java.DaoSession;
+import com.example.tayler_gabbi.monedero_java.R;
+import com.example.tayler_gabbi.monedero_java.model.Usuario;
+import com.example.tayler_gabbi.monedero_java.UsuarioDao;
+import com.example.tayler_gabbi.monedero_java.listas.ListaUsuarioActivity;
 
 import java.util.List;
 

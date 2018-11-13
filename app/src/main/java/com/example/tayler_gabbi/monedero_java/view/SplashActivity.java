@@ -1,4 +1,4 @@
-package com.example.tayler_gabbi.monedero_java;
+package com.example.tayler_gabbi.monedero_java.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+
+import com.example.tayler_gabbi.monedero_java.R;
 
 public class SplashActivity extends AppCompatActivity {
 
