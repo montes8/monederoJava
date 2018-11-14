@@ -7,13 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.example.tayler_gabbi.monedero_java.DaoMaster;
-import com.example.tayler_gabbi.monedero_java.DaoSession;
 import com.example.tayler_gabbi.monedero_java.R;
+import com.example.tayler_gabbi.monedero_java.model.DaoMaster;
+import com.example.tayler_gabbi.monedero_java.model.DaoSession;
 import com.example.tayler_gabbi.monedero_java.model.Usuario;
-import com.example.tayler_gabbi.monedero_java.UsuarioDao;
 import com.example.tayler_gabbi.monedero_java.listas.ListaUsuarioActivity;
+import com.example.tayler_gabbi.monedero_java.model.UsuarioDao;
 
 import java.util.List;
 

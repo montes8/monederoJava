@@ -4,6 +4,8 @@ package com.example.tayler_gabbi.monedero_java;
 
 import android.app.Application;
 
+import com.example.tayler_gabbi.monedero_java.model.DaoSession;
+
 import org.greenrobot.greendao.database.Database;
 
 public class MonederoApplication extends Application {
