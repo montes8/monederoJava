@@ -51,30 +51,25 @@ public class LoginActivity extends AppCompatActivity {
 
 
             String usuario = txtUsuario.getText().toString();
+            List<Usuario> listUsuario =loginDAO.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
+                if(listUsuario!= null) {
+                    for(Usuario login : listUsuario) {
 
-            if(usuario.equals("")) {
-                Toast.makeText(this, "Debe indicar el Usuario a comprobar.", Toast.LENGTH_LONG).show();
-            }
-            else
-            {
-                List<Usuario> listUsuario = this.loginDAO.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
-                if(listUsuario!= null)
-                {
-                    for(Usuario login : listUsuario)
-                    {
-                        Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
-                                "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),Toast.LENGTH_LONG).show();
+                        if(usuario.equals(login.getUsuario())){
+                            Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
+                                    "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(this, "no existe usuarioEl usuario",Toast.LENGTH_LONG).show();
+                        }
 
-                        Intent intent = new Intent(LoginActivity.this,ListaUsuarioActivity.class);
-                        startActivity(intent);
+
                     }
                 }
-                else
-                {
+                else {
                     Toast.makeText(this, "No hay coincidencias.", Toast.LENGTH_LONG).show();
                 }
             }
-        
 
-    }
+
+
 }
