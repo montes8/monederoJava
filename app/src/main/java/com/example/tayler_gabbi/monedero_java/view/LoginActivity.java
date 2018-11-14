@@ -47,31 +47,34 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Comprobar si existe Usuario
-    public void iniciarSesion()
-    {
-        String usuario = txtUsuario.getText().toString();
-        List<Usuario> listUsuario = this.loginDAO.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
-        if(usuario.equals(""))
-        {
-            Toast.makeText(this, "Debe indicar el Usuario a comprobar.", Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            if(listUsuario!= null)
-            {
-                for(Usuario login : listUsuario)
-                {
-                    Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
-                            "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),Toast.LENGTH_LONG).show();
+    public void iniciarSesion() {
 
-                    Intent intent = new Intent(LoginActivity.this,ListaUsuarioActivity.class);
-                    startActivity(intent);
-                }
+
+            String usuario = txtUsuario.getText().toString();
+
+            if(usuario.equals("")) {
+                Toast.makeText(this, "Debe indicar el Usuario a comprobar.", Toast.LENGTH_LONG).show();
             }
             else
             {
-                Toast.makeText(this, "No hay coincidencias.", Toast.LENGTH_LONG).show();
+                List<Usuario> listUsuario = this.loginDAO.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
+                if(listUsuario!= null)
+                {
+                    for(Usuario login : listUsuario)
+                    {
+                        Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
+                                "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(LoginActivity.this,ListaUsuarioActivity.class);
+                        startActivity(intent);
+                    }
+                }
+                else
+                {
+                    Toast.makeText(this, "No hay coincidencias.", Toast.LENGTH_LONG).show();
+                }
             }
-        }
+        
+
     }
 }
