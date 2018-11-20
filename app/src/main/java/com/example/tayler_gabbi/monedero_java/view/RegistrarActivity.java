@@ -50,7 +50,7 @@ public class RegistrarActivity extends AppCompatActivity {
         usuario.setContrasenia(contrasenia.getText().toString());
         Long a=daoSession.getUsuarioDao().insert(usuario);
 
-        Intent intent = new Intent(RegistrarActivity.this,ListaUsuarioActivity.class);
+        Intent intent = new Intent(RegistrarActivity.this,HomeActivity.class);
         startActivity(intent);
         Toast.makeText(this,"Usuario Registrado",Toast.LENGTH_LONG).show();
         finish();

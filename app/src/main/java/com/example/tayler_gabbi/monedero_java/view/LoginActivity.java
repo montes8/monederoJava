@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("validaciologin",""+ listUsuario);
                         if(listUsuario!= null && listUsuario.size() > 0) {
                             Toast.makeText(LoginActivity.this, "coincidencias.", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                     startActivity(intent);
                                     txtUsuario.setText("");
                                     txtPassword.setText("");
