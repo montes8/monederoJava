@@ -27,8 +27,13 @@ public class ListaUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_usuario);
 
         daoSession = ((MonederoApplication)getApplication()).getDaoSession().getUsuarioDao();
-
         recyclerView = findViewById(R.id.lista_usuario);
+
+      listarUsuario();
+
+    }
+
+    public void listarUsuario(){
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AdapterListaUsuario();
@@ -38,11 +43,5 @@ public class ListaUsuarioActivity extends AppCompatActivity {
         adapter.addList((ArrayList<Usuario>) usuarios);
 
         recyclerView.setAdapter(adapter);
-
-    }
-
-    public void listarUsuario(){
-
-
     }
 }
