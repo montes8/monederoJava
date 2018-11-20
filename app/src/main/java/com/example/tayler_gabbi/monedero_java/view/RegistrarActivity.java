@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.tayler_gabbi.monedero_java.MonederoApplication;
 import com.example.tayler_gabbi.monedero_java.R;
 import com.example.tayler_gabbi.monedero_java.model.DaoSession;
@@ -50,6 +52,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
         Intent intent = new Intent(RegistrarActivity.this,ListaUsuarioActivity.class);
         startActivity(intent);
+        Toast.makeText(this,"Usuario Registrado",Toast.LENGTH_LONG).show();
         finish();
 
     }

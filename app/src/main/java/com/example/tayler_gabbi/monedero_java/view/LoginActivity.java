@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import com.example.tayler_gabbi.monedero_java.MonederoApplication;
 import com.example.tayler_gabbi.monedero_java.R;
+import com.example.tayler_gabbi.monedero_java.listas.ListaUsuarioActivity;
 import com.example.tayler_gabbi.monedero_java.model.Usuario;
 import com.example.tayler_gabbi.monedero_java.model.UsuarioDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,30 +42,28 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String usuario = txtUsuario.getText().toString();
-                List listUsuario = usuarioDao.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
 
 
-                if(usuario.equals(""))
-                {
-                    Toast.makeText(LoginActivity.this, "Debe indicar el Usuario a comprobar.", Toast.LENGTH_LONG).show();
+                if(usuario.equals("") || txtPassword.equals("")) {
+                    Toast.makeText(LoginActivity.this, "Debe indicar el campo a comprobar.", Toast.LENGTH_LONG).show();
                 }
-                else
-                {
-                    if(listUsuario!= null) {
-                        for(Usuario usuario1 :listUsuario) {
-                            Toast.makeText(this, "El usuario indicado existe en la Base de Datos." +
-                                    "\nID:" + login.getId() + "\nUsuario:" + login.getUsuario(),3000).show();
+                else {
+                    ArrayList<Usuario> listUsuario = (ArrayList<Usuario>) usuarioDao.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
+                    Log.d("validaciologin",""+listUsuario.toString());
+                        if(listUsuario!= null) {
+                            Toast.makeText(LoginActivity.this, "coincidencias.", Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                    startActivity(intent);
+                                    txtUsuario.setText("");
+                                    txtPassword.setText("");
+                                    finish();
+
+                          } else {
+                            Toast.makeText(LoginActivity.this, "No hay coincidencias.", Toast.LENGTH_LONG).show();
                         }
-                    }
-                    else
-                    {
-                        Toast.makeText(this, "No hay coincidencias.", 3000).show();
-                    }
-                }
+                 }
             }
-       }
 
-            }
         });
      }
 }

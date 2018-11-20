@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.tayler_gabbi.monedero_java.R;
 import com.example.tayler_gabbi.monedero_java.model.Usuario;
@@ -54,7 +55,7 @@ public class AdapterListaUsuario extends RecyclerView.Adapter<AdapterListaUsuari
     public class UsuarioViewholder extends RecyclerView.ViewHolder{
 
 
-        private EditText nombre,usuario,contrasenia;
+        private TextView nombre,usuario,contrasenia;
 
         public UsuarioViewholder(View itemView) {
             super(itemView);
