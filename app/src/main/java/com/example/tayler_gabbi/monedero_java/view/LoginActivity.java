@@ -42,15 +42,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String usuario = txtUsuario.getText().toString();
+                String pass = txtPassword.getText().toString();
 
 
-                if(usuario.equals("") || txtPassword.equals("")) {
+                if(usuario.equals("") || pass.equals("")) {
                     Toast.makeText(LoginActivity.this, "Debe indicar el campo a comprobar.", Toast.LENGTH_LONG).show();
                 }
                 else {
                     ArrayList<Usuario> listUsuario = (ArrayList<Usuario>) usuarioDao.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(usuario)).list();
-                    Log.d("validaciologin",""+listUsuario.toString());
-                        if(listUsuario!= null) {
+                    Log.d("validaciologin",""+ listUsuario);
+                        if(listUsuario!= null && listUsuario.size() > 0) {
                             Toast.makeText(LoginActivity.this, "coincidencias.", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                                     startActivity(intent);
